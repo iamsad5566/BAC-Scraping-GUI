@@ -2,14 +2,19 @@ package config
 
 import (
 	"bac-scraper-gui/obj"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"os/exec"
 
 	"gopkg.in/yaml.v3"
 )
 
 func LoadYml() *obj.EnVariable {
-	data, err := ioutil.ReadFile("config.yml")
+	cmd := exec.Command("pwd")
+	path, _ := cmd.Output()
+	fmt.Print(string(path))
+	data, err := ioutil.ReadFile("./config.yml")
 	errDealer(err)
 
 	yml := obj.EnVariable{}

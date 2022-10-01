@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	fyne.io/fyne/v2 v2.2.3
+	github.com/joho/godotenv v1.4.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 

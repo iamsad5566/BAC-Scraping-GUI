@@ -85,7 +85,7 @@ func membersEntry(member []string) fyne.CanvasObject {
 func handleStart(envar *obj.EnVariable, window fyne.Window) fyne.CanvasObject {
 	button := widget.NewButton("Go!", func() {
 		model.OverWriteYml(mp, envar)
-		cmd := exec.Command("java", "-jar", "Scraping.jar", mp["year"].Text, mp["month"].Text)
+		cmd := exec.Command("java", "-jar", "./Scraping.jar", mp["year"].Text, mp["month"].Text)
 		cmd.Run()
 		// window.Close()
 	})

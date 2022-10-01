@@ -1,3 +1,0 @@
-widget.NewButton("Save", func() {
-		log.Println("Content was:", input.Text)
-	})
