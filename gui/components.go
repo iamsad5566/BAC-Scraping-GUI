@@ -41,7 +41,7 @@ func sortLayOut(envar *obj.EnVariable, window fyne.Window) fyne.CanvasObject {
 }
 
 func title() fyne.CanvasObject {
-	title := canvas.NewText("BAC lab 報帳自動結算軟體", color.White)
+	title := canvas.NewText("BAC lab 報帳自動結算軟體", color.Black)
 	title.TextSize = 40.0
 	verticle := canvas.NewText(" ", color.White)
 	horizontal := canvas.NewText(" ", color.White)
