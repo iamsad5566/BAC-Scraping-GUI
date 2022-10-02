@@ -1,6 +1,6 @@
 # BAC Lab scraper GUI
 
-Make sure you have Java(v16 up) in your OS environment, if not, go [here]("https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html") and select the file depending on what device you use.  
+Make sure you have Java(v16 up) in your OS environment, if not, go [here](https://oracle.com/java/technologies/javase/jdk18-archive-downloads.html) and select the file depending on what device you use.  
 The Scraping.jar is packaged from [web_scraping_Java](https://github.com/iamsad5566/web_scraping_Java), any detail for the scraper is within it.
 
 Step: 
