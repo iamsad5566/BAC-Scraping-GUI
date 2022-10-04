@@ -1,8 +1,8 @@
 package gui
 
 import (
+	"bac-scraper-gui/config"
 	"bac-scraper-gui/model"
-	"bac-scraper-gui/obj"
 	"image/color"
 	"os/exec"
 
@@ -19,24 +19,24 @@ var year string = ""
 var month string = ""
 var mp map[string]*widget.Entry = make(map[string]*widget.Entry)
 
-func OpenWindow(envar *obj.EnVariable) {
+func OpenWindow() {
 	guiApp := app.New()
 	guiApp.Settings().SetTheme(&myTheme{})
 	window := guiApp.NewWindow("Web scraper for BAC")
 	window.Resize(fyne.NewSize(width, height))
 	window.SetFixedSize(true)
-	window.SetContent(sortLayOut(envar, window))
+	window.SetContent(sortLayOut(window))
 	window.ShowAndRun()
 }
 
-func sortLayOut(envar *obj.EnVariable, window fyne.Window) fyne.CanvasObject {
+func sortLayOut(window fyne.Window) fyne.CanvasObject {
 	title := title()
 	firstRow := yearAndMonthEntry()
-	secondRow := membersEntry(envar.GetMembers())
+	secondRow := membersEntry()
 
 	space := canvas.NewText(" ", color.White)
 	space.TextSize = 40.0
-	content := container.NewBorder(space, nil, nil, nil, container.NewVBox(title, firstRow, secondRow, handleStart(envar, window)))
+	content := container.NewBorder(space, nil, nil, nil, container.NewVBox(title, firstRow, secondRow, handleStart(window)))
 	return content
 }
 
@@ -64,12 +64,13 @@ func yearAndMonthEntry() fyne.CanvasObject {
 	return content
 }
 
-func membersEntry(member []string) fyne.CanvasObject {
+func membersEntry() fyne.CanvasObject {
 	label := widget.NewLabel("Members")
 	input := widget.NewEntry()
 	nameList := func() string {
+		yml := config.LoadYml()
 		t := ""
-		for _, name := range member {
+		for _, name := range yml.Members {
 			t += (name + "\n")
 		}
 		return t
@@ -82,8 +83,9 @@ func membersEntry(member []string) fyne.CanvasObject {
 	return content
 }
 
-func handleStart(envar *obj.EnVariable, window fyne.Window) fyne.CanvasObject {
+func handleStart(window fyne.Window) fyne.CanvasObject {
 	button := widget.NewButton("Go!", func() {
+		envar := config.LoadYml()
 		model.OverWriteYml(mp, envar)
 		cmd := exec.Command("java", "-jar", "Scraping.jar", mp["year"].Text, mp["month"].Text)
 		cmd.Run()

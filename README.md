@@ -12,3 +12,9 @@ Step:
 
  4. Fill in the Year and Month info, adjust the member list. Press the **GO!** button, then just go ahead to have a cup of coffee.
  5. The caculated result would be exported under the root path, which is the `~/bac_scraper` folder.
+
+---
+
+ There's the other way to start the program, just use fyne package to package this go program into an application,
+ also, remeber to drag the Scraping.jar, chromedriver, and config.yml into the application / Contents / Resources folder.
+ All you could just contact me, I will pass it to you directly.
