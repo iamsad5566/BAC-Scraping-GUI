@@ -17,4 +17,4 @@ Step:
 
  There's another way to start the program, just use fyne.io to package all this go program into an application,
  also, remember to drag the Scraping.jar, chromedriver, and config.yml into the application / Contents / Resources folder.
- Or just contact with me, I will pass it on to you.
+ Or just contact me, and I will pass it on to you.

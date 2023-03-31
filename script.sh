@@ -4,4 +4,4 @@ echo "DIR $DIR"
 cd $DIR
 ./bac_gui
 
-#read -p "Press [Enter] key to start backup..."
+read -p "Press [Enter] key to start backup..."
